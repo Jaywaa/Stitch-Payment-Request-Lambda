@@ -1,4 +1,4 @@
-import { Decoder, array, object, string, number, map, optional } from 'function/stitch/decoders';
+import { Decoder, array, object, string, number, map, optional } from 'decoders';
 import { PaymentInitiationResponse, StitchError } from '../domain/types';
 
 export const stitchErrorDecoder: Decoder<StitchError[]> = array(object({

@@ -2,15 +2,13 @@
   "name": "stitch-paymentrequest-lambda",
   "version": "1.0.0",
   "description": "A lambda that retrieves a token, and uses it to create a Stitch PaymentInitiationRequest and returns the URL and ID",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jaywaa/stitch-create-payment.git"
   },
-  "keywords": [
-    "stitch",
-    "payment"
-  ],
   "author": "jamesbellairs",
   "license": "MIT",
   "bugs": {
@@ -22,9 +20,11 @@
     "@types/jsonwebtoken": "^8.5.1",
     "@types/node": "^15.6.1",
     "@types/node-fetch": "^2.5.10",
-    "aws-lambda": "^1.0.6"
+    "aws-lambda": "^1.0.6",
+    "typescript": "^4.3.2"
   },
   "dependencies": {
+    "decoders": "^1.23.5",
     "jsonwebtoken": "^8.5.1",
     "node-fetch": "^2.6.1"
   }

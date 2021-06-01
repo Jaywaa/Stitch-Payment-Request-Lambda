@@ -1,7 +1,7 @@
 import { fetchGraphQL } from './fetch-graphql';
 import { BeneficiaryBankAccount } from '../../domain/types';
 import { stitchErrorDecoder, stitchPaymentInitiationResponseDecoder } from '../decoders';
-import { guard } from 'function/stitch/decoders';
+import { guard } from 'decoders';
 
 export async function createPaymentRequest(token: string, amount: number, bankAccount: BeneficiaryBankAccount, payerReference: string, beneficiaryReference: string) {
     const { errors, data } = await fetchGraphQL(
