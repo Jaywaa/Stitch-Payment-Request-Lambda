@@ -1,14 +1,14 @@
 import { fetchGraphQL } from './fetch-graphql';
-import { BeneficiaryBankAccount } from '../../domain/types';
+import { PaymentRequestInputs } from '../../domain/types';
 import { stitchErrorDecoder, stitchPaymentInitiationResponseDecoder } from '../decoders';
 import { guard } from 'decoders';
 
-export async function createPaymentRequest(token: string, amount: number, bankAccount: BeneficiaryBankAccount, payerReference: string, beneficiaryReference: string) {
+export async function createPaymentRequest(token: string, inputs: PaymentRequestInputs) {
     const { errors, data } = await fetchGraphQL(
         token,
         operation,
-        "CreatePaymentRequest",
-        {"amount": { quantity: `${amount}`, currency: 'ZAR' }, "accountNumber": bankAccount.accountNumber, "bank": bankAccount.bank, "payerReference": payerReference, "beneficiaryReference": beneficiaryReference}
+        'CreatePaymentRequest',
+        {'amount': { quantity: `${inputs.quantity}`, currency: inputs.currency }, 'accountNumber': inputs.beneficiaryAccountNum, 'bank': inputs.beneficiaryBank, 'payerReference': inputs.payerReference, 'beneficiaryReference': inputs.beneficiaryReference, 'beneficiaryName': inputs.beneficiaryName }
     );
 
     if (errors) {
@@ -21,8 +21,8 @@ export async function createPaymentRequest(token: string, amount: number, bankAc
     return guard(stitchPaymentInitiationResponseDecoder)(data);
 }
 
-const operation = `mutation CreatePaymentRequest($amount: MoneyInput!, $accountNumber: String!, $bank: BankBeneficiaryBankId!, $payerReference: String!, $beneficiaryReference: String!) {
-    clientPaymentInitiationRequestCreate(input: {amount: $amount, beneficiary: {bankAccount: {name: "James", bankId: $bank, accountNumber: $accountNumber}}, payerReference: $payerReference, beneficiaryReference: $beneficiaryReference}) {
+const operation = `mutation CreatePaymentRequest($amount: MoneyInput!, $accountNumber: String!, $beneficiaryName: String!, $bank: BankBeneficiaryBankId!, $payerReference: String!, $beneficiaryReference: String!) {
+    clientPaymentInitiationRequestCreate(input: {amount: $amount, beneficiary: {bankAccount: {name: $beneficiaryName, bankId: $bank, accountNumber: $accountNumber}}, payerReference: $payerReference, beneficiaryReference: $beneficiaryReference}) {
       paymentInitiationRequest {
         id
         url

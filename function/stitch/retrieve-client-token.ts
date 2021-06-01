@@ -2,7 +2,9 @@ import jwt, { SignOptions } from 'jsonwebtoken';
 import crypto from 'crypto';
 import fetch from 'node-fetch';
 
-export async function retrievePaymentToken(clientId: string, clientAssertion: string) {
+export async function retrieveClientToken(clientId: string, clientCertificatePem: string) {
+    const clientAssertion = await generateClientAssertion(clientId, clientCertificatePem)
+
     const body = {
         grant_type: 'client_credentials',
         client_id: clientId,
@@ -33,7 +35,7 @@ export async function retrievePaymentToken(clientId: string, clientAssertion: st
     return responseBody.access_token;
 }
 
-export async function generateClientAssertion(clientId: string, clientCertificatePem: string): Promise<string> {
+async function generateClientAssertion(clientId: string, clientCertificatePem: string): Promise<string> {
     const issuer = clientId;
     const subject = clientId;
     const audience = 'https://secure.stitch.money/connect/token';

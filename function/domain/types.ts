@@ -1,3 +1,13 @@
+export type PaymentRequestInputs = {
+    currency: string,
+    quantity: number,
+    payerReference: string,
+    beneficiaryReference: string,
+    beneficiaryAccountNum: string,
+    beneficiaryBank: string,
+    beneficiaryName: string
+}
+
 export type BeneficiaryBankAccount = {
     accountNumber: string,
     bank: string
