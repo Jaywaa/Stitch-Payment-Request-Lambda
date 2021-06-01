@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+      "module": "CommonJS",
+      "target": "ES2018",
+      "strict": true,
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "typeRoots": [
+          "node_modules/@types",
+          "types"
+      ],
+    "outDir": "build/"
+  },
+  "include": [
+      "./**/*.ts",
+      "types"
+  ]
+}
