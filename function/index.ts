@@ -12,7 +12,7 @@ export async function handler (
     _context: Context
 ) {
     try {
-        const paymentRequestInputs = guard(requestBodyDecoder)(event.body);
+        const paymentRequestInputs = guard(requestBodyDecoder)(JSON.stringify(event.body));
 
         const { stitchClientId, stitchClientCertificate } = getSettings();
 
