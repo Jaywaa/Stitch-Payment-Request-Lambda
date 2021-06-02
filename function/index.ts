@@ -4,6 +4,7 @@ import { getSettings } from './domain/settings';
 import { createPaymentRequest } from './stitch/operations/payment-request-create';
 import { guard } from 'decoders';
 import { requestBodyDecoder } from './domain/decoders';
+import { handleBadRequest, handleError } from './domain/errors';
 
 // For an example request body, see PaymentRequestInputs in function/domain/types.ts
 // [POST]
@@ -11,8 +12,12 @@ export async function handler (
     event: APIGatewayEvent,
     _context: Context
 ) {
+    if (!event.body) {
+        return handleBadRequest('Request body was null or empty.');
+    }
+
     try {
-        const paymentRequestInputs = guard(requestBodyDecoder)(JSON.stringify(event.body));
+        const paymentRequestInputs = guard(requestBodyDecoder)(JSON.parse(event.body ?? '{}'));
 
         const { stitchClientId, stitchClientCertificate } = getSettings();
 
@@ -34,16 +39,6 @@ export async function handler (
             })
         }
     } catch (e) {
-        return {
-            statusCode: 500,
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                type: 'FAILED',
-                error: e.message,
-                stack: e.stack
-            })
-        }
+        return handleError(e);
     }
 }
