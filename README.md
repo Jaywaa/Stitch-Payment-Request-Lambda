@@ -37,4 +37,4 @@ curl --request POST \
 ```
 
 ## ⚠️ Warning
-This function offers no authorization. It accepts beneficiary information via the POST body, and it is strongly recommended you secure this function to avoid malicious generation of payment requests using your client information.
+This function offers no authorization. It accepts beneficiary information via the POST body, and it is strongly recommended you secure this function to avoid malicious generation of payment requests using your client information. See: [Lambda authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html)
