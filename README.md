@@ -2,6 +2,9 @@
 
 A lambda that retrieves a token, and uses it to create a Stitch [PaymentInitiationRequest](https://stitch.money/docs/stitch-api/payment-requests) and returns the URL and ID
 
+## ⚠️ Warning
+This function offers no authorization. It accepts beneficiary information via the POST body, and it is strongly recommended you secure this function to avoid malicious generation of payment requests using your client information. See: [Lambda authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html)
+
 ## Getting started
 
 ### 1. Set up environment
@@ -35,6 +38,3 @@ curl --request POST \
 	"beneficiaryName": "<BENEFICIARY-NAME>"
 }'
 ```
-
-## ⚠️ Warning
-This function offers no authorization. It accepts beneficiary information via the POST body, and it is strongly recommended you secure this function to avoid malicious generation of payment requests using your client information. See: [Lambda authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html)
