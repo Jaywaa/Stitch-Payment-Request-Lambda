@@ -17,4 +17,24 @@ If you would rather set these values using a different method, you will need to 
 ### 2. Running locally
 Install: `npm run install`
 
-Run: `npm run start`
+Build: `npm run build`
+
+### 3. Invoking function
+Curl example (replace the function URL, and beneficiary information):
+```bash
+curl --request POST \
+  --url <FUNCTION-URL> \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"quantity": 1,
+	"currency": "ZAR",
+	"payerReference": "Test",
+	"beneficiaryReference": "Test",
+	"beneficiaryBank": "<BANK-ID>",
+	"beneficiaryAccountNum": "<BENEFICIARY-ACCOUNT-NUMBER>",
+	"beneficiaryName": "<BENEFICIARY-NAME>"
+}'
+```
+
+## ⚠️ Warning
+This function offers no authorization. It accepts beneficiary information via the POST body, and it is strongly recommended you secure this function to avoid malicious generation of payment requests using your client information.
