@@ -47,4 +47,4 @@ curl --request POST \
 ```
 
 ### Community
-Please direct any conversation to the [Stitch Slack community](stitch-community.slack.com)
+Please direct any conversation to the [Stitch Slack community](https://stitch-community.slack.com)
