@@ -8,7 +8,7 @@ type Settings = {
 
 export function getSettings(): Settings {
     // Importing private key from environment variables, but could read this from disk too.
-    // Keep it secret. It should not be checked into your repository.
+    // Keep it secret 🤫. It should not be checked into your repository.
     let { STITCH_PRIVATE_KEY } = process.env;
     const { STITCH_CLIENT_ID } = process.env;
 
