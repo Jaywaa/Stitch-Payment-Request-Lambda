@@ -7,7 +7,7 @@ This function offers no authorization. It accepts beneficiary information via th
 
 ## Code
 If you're just here to see code examples for integrating with the Stitch API. The files you'll want are:
-1. `function/stitch/retrieve-client-token.ts` -- generates a client assertion and fetches a client token.
+1. `function/stitch/retrieve-client-token.ts` -- generates a client assertion and fetches a token.
 2. `function/stitch/payment-request-create.ts` -- builds the GraphQL query to generate a PaymentInitiationRequest
 3. `function/stitch/fetch-graqhql.ts` -- simply executes the network request to the Stitch API
 
