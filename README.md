@@ -2,9 +2,6 @@
 
 A lambda that retrieves a token, and uses it to create a Stitch [PaymentInitiationRequest](https://stitch.money/docs/stitch-api/payment-requests) and returns the URL and ID
 
-## ⚠️ Warning
-This function offers no authorization. It serves as an example, and accepts beneficiary information via the POST body, and it is strongly recommended you secure this function to avoid malicious generation of payment requests using your client information. See: [Lambda authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html)
-
 ## Code
 If you're just here to see code examples for integrating with the Stitch API. The files you'll want are:
 1. `function/stitch/retrieve-client-token.ts` -- generates a client assertion and fetches a token.
@@ -48,3 +45,6 @@ curl --request POST \
 
 ### Community
 Please direct any conversation to the [Stitch Slack community](https://stitch-community.slack.com)
+
+## ⚠️ Warning
+This function offers no authorization. It serves as an example, and accepts beneficiary information via the POST body, and it is strongly recommended you secure this function to avoid malicious generation of payment requests using your client information. See: [Lambda authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html)
