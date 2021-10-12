@@ -5,8 +5,8 @@ A lambda that retrieves a token, and uses it to create a Stitch [PaymentInitiati
 ## Code
 If you're just here to see code examples for integrating with the Stitch API. The files you'll want are:
 1. [`function/stitch/retrieve-client-token.ts`](https://github.com/Jaywaa/Stitch-Payment-Request-Lambda/blob/main/function/stitch/retrieve-client-token.ts) -- generates a client assertion and fetches a token.
-2. `function/stitch/payment-request-create.ts` -- builds the GraphQL query to generate a PaymentInitiationRequest
-3. `function/stitch/fetch-graqhql.ts` -- simply executes the network request to the Stitch API
+2. [`function/stitch/payment-request-create.ts`](https://github.com/Jaywaa/Stitch-Payment-Request-Lambda/blob/main/function/stitch/operations/payment-request-create.ts) -- builds the GraphQL query to generate a PaymentInitiationRequest
+3. [`function/stitch/fetch-graqhql.ts`](https://github.com/Jaywaa/Stitch-Payment-Request-Lambda/blob/main/function/stitch/operations/fetch-graphql.ts) -- simply executes the network request to the Stitch API
 
 ## Getting started
 If you would like to implement and deploy the function, you'll need to follow the guide below.
