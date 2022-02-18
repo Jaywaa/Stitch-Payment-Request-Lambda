@@ -15,7 +15,7 @@ If you would like to implement and deploy the function, you'll need to follow th
 Take a look at `function/settings.ts` to see how the environment variables are loaded.
 In order to run the Lambda, the following environment variables will need to be present: 
 
-* `STITCH_PRIVATE_KEY` -- the private key portion of the certificate issued to you by Stitch.
+* `STITCH_PRIVATE_KEY` -- the **private key** portion of the certificate issued to you by Stitch.
 * `STITCH_CLIENT_ID` -- the client ID issued to you by Stitch.
 
 This will need to be done locally, and on the environment the lambda will be running, see: [Configuring environment variables for AWS Lambdas](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
@@ -44,7 +44,7 @@ curl --request POST \
 ```
 
 ### Community
-Please direct any conversation to the [Stitch Slack community](https://stitch-community.slack.com)
+Feel free to open any issues, PRs, and or direct any conversation to the [Stitch Slack community](https://stitch-community.slack.com)
 
 ## ⚠️ Warning
-This function offers no authorization. It serves as an example, and accepts beneficiary information via the POST body, and it is strongly recommended you secure this function to avoid malicious generation of payment requests using your client information. See: [Lambda authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html)
+This function offers no authorization. It merely serves as an example, and accepts beneficiary information via the POST body. It is strongly recommended you secure this function to avoid malicious generation of payment requests using your client information. See: [Lambda authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html)
