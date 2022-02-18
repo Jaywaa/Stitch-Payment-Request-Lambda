@@ -44,7 +44,7 @@ curl --request POST \
 ```
 
 ### Community
-Feel free to open any issues, PRs, and or direct any conversation to the [Stitch Slack community](https://stitch-community.slack.com)
+Feel free to open any issues, PRs, and direct any conversation to the [Stitch Slack community](https://stitch-community.slack.com)
 
 ## ⚠️ Warning
 This function offers no authorization. It merely serves as an example, and accepts beneficiary information via the POST body. It is strongly recommended you secure this function to avoid malicious generation of payment requests using your client information. See: [Lambda authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html)
